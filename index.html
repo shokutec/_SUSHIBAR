@@ -6,11 +6,7 @@
   <title>Shoku Tecnológico</title>
   
   <style>
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body, html {
       height: 100%;
@@ -21,20 +17,16 @@
 
     #video-background {
       position: fixed;
-      top: 0; 
-      left: 0;
-      width: 100%; 
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
       z-index: -1;
     }
 
     .overlay {
       position: fixed;
-      top: 0; 
-      left: 0;
-      width: 100%; 
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.45);
       z-index: 0;
     }
@@ -48,10 +40,9 @@
       align-items: center;
       justify-content: center;
       padding: 30px 20px;
-      gap: 40px;
+      gap: 50px; /* espacio entre MENU y el botón de experiencia */
     }
 
-    /* Instagram */
     .instagram {
       position: absolute;
       top: 25px;
@@ -70,19 +61,23 @@
       object-fit: cover;
     }
 
-    /* Botones */
+    /* Botón MENU - grande y centrado */
     .menu-btn {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       font-weight: bold;
       letter-spacing: 8px;
       text-transform: uppercase;
-      padding: 20px 80px;
+      padding: 25px 90px;
       background: rgba(0, 0, 0, 0.5);
       border: 3px solid white;
       border-radius: 20px;
       cursor: pointer;
+      color: white;
+      text-decoration: none;
+      text-align: center;
     }
 
+    /* Botón CUÉNTANOS TU EXPERIENCIA - abajo del MENU */
     .experience-btn {
       font-size: 1.7rem;
       font-weight: bold;
@@ -91,122 +86,32 @@
       border: 3px solid white;
       border-radius: 50px;
       cursor: pointer;
-      margin-top: 15px;
-    }
-
-    /* Página del menú */
-    #menu-page {
-      position: fixed;
-      top: 0; 
-      left: 0;
-      width: 100%; 
-      height: 100%;
-      background: #0a0a0a;
-      z-index: 100;
-      display: none;
-      flex-direction: column;
-    }
-
-    .menu-header {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background: rgba(10, 10, 10, 0.98);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 25px;
-      border-bottom: 1px solid #333;
-      z-index: 101;
-    }
-
-    .menu-title {
-      font-size: 2.4rem;
-      font-weight: bold;
-    }
-
-    .close-btn {
-      font-size: 2.8rem;
-      cursor: pointer;
-    }
-
-    /* Grid del menú - Fotos pegadas una debajo de la otra */
-    .menu-grid {
-      flex: 1;
-      overflow-y: auto;
-      background: #000;
-    }
-
-    .menu-item {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #000;
-      margin: 0;                    /* Sin espacio entre fotos */
-      padding: 0;
-    }
-
-    .menu-item img {
-      width: 100%;
-      height: auto;
-      max-height: 100vh;            /* Evita que una foto sea más grande que la pantalla */
-      object-fit: contain;          /* Muestra la foto completa sin deformar */
-      display: block;
+      color: white;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Video de fondo -->
   <video id="video-background" autoplay loop muted playsinline>
     <source src="fondo.mp4" type="video/mp4">
   </video>
 
   <div class="overlay"></div>
 
-  <!-- Pantalla principal -->
   <div class="content">
+    <!-- Instagram -->
     <a href="https://www.instagram.com/shoku_tecnologico?igsh=MWo4anlmaHUxeGFnNQ==" target="_blank" class="instagram">
       <img src="ig.png" alt="Instagram Shoku">
     </a>
 
-    <div style="text-align: center;">
-      <div class="menu-btn" onclick="openMenu()">MENU</div>
-      <div class="experience-btn" onclick="window.open('https://maps.app.goo.gl/tYC4FADQPSR65c1r5', '_blank')">
-        CUÉNTANOS TU EXPERIENCIA
-      </div>
-    </div>
+    <!-- Botones separados: MENU en medio y experiencia abajo -->
+    <a href="menu.html" class="menu-btn">MENU</a>
+    
+    <a href="https://maps.app.goo.gl/tYC4FADQPSR65c1r5" target="_blank" class="experience-btn">
+      CUÉNTANOS TU EXPERIENCIA
+    </a>
   </div>
 
-  <!-- Página del menú -->
-  <div id="menu-page">
-    <div class="menu-header">
-      <div class="menu-title">NUESTRO MENÚ</div>
-      <div class="close-btn" onclick="closeMenu()">✕</div>
-    </div>
-    
-    <div class="menu-grid" id="menuGrid"></div>
-  </div>
-
-  <script>
-    // Generar las 18 fotos del menú
-    const menuGrid = document.getElementById('menuGrid');
-    
-    for (let i = 1; i <= 18; i++) {
-      const item = document.createElement('div');
-      item.className = 'menu-item';
-      item.innerHTML = `<img src="menu ${i}.png" alt="Menú ${i}" loading="lazy">`;
-      menuGrid.appendChild(item);
-    }
-
-    function openMenu() {
-      document.getElementById('menu-page').style.display = 'flex';
-    }
-
-    function closeMenu() {
-      document.getElementById('menu-page').style.display = 'none';
-    }
-  </script>
 </body>
 </html>
