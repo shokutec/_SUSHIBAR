@@ -40,7 +40,7 @@
       align-items: center;
       justify-content: center;
       padding: 30px 20px;
-      gap: 50px;
+      gap: 35px;
     }
 
     .instagram {
@@ -61,30 +61,58 @@
       object-fit: cover;
     }
 
-    .menu-btn {
-      font-size: 3.8rem;
+    /* Botones iguales y elegantes */
+    .btn {
+      font-size: 2.25rem;
       font-weight: bold;
-      letter-spacing: 8px;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      padding: 25px 90px;
-      background: rgba(0, 0, 0, 0.5);
-      border: 3px solid white;
-      border-radius: 20px;
-      cursor: pointer;
-      color: white;
-      text-decoration: none;
-    }
-
-    .experience-btn {
-      font-size: 1.7rem;
-      font-weight: bold;
-      padding: 15px 50px;
-      background: rgba(0, 0, 0, 0.5);
-      border: 3px solid white;
+      padding: 20px 75px;
+      background: rgba(0, 0, 0, 0.45);
+      border: 3px solid rgba(255, 255, 255, 0.95);
       border-radius: 50px;
       cursor: pointer;
       color: white;
       text-decoration: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: scale(1.04);
+      border-color: white;
+    }
+
+    /* ==================== OPTIMIZACIÓN PARA TELÉFONOS ==================== */
+    @media (max-width: 640px) {
+      .content {
+        gap: 28px;           /* menos espacio entre botones */
+        padding: 20px 15px;  /* más margen lateral pequeño */
+      }
+
+      .btn {
+        font-size: 1.65rem;      /* más pequeño en móviles */
+        letter-spacing: 3px;
+        padding: 16px 50px;      /* menos ancho */
+        border-radius: 50px;
+      }
+
+      .instagram {
+        width: 60px;
+        height: 60px;
+        top: 20px;
+        left: 20px;
+      }
+    }
+
+    /* Aún más pequeño en teléfonos muy pequeños (ej. iPhone SE, Android pequeños) */
+    @media (max-width: 480px) {
+      .btn {
+        font-size: 1.55rem;
+        padding: 15px 45px;
+      }
     }
   </style>
 </head>
@@ -97,19 +125,18 @@
   <div class="overlay"></div>
 
   <div class="content">
+    <!-- Instagram -->
     <a href="https://www.instagram.com/shoku_tecnologico?igsh=MWo4anlmaHUxeGFnNQ==" target="_blank" class="instagram">
       <img src="ig.png" alt="Instagram Shoku">
     </a>
 
-    <a href="menu.html" class="menu-btn">MENU</a>
-    
-    <a href="https://maps.app.goo.gl/tYC4FADQPSR65c1r5" target="_blank" class="experience-btn">
-      CUÉNTANOS TU EXPERIENCIA
+    <!-- Los 3 botones del mismo tamaño y totalmente visibles en celular -->
+    <a href="menu.html" class="btn">MENU</a>
+    <a href="https://won.cards/4nk" target="_blank" class="btn">MEMBRESIA</a>
+    <a href="https://maps.app.goo.gl/tYC4FADQPSR65c1r5" target="_blank" class="btn">
+      RECOMIENDANOS
     </a>
   </div>
-
-</body>
-</html>
 
 </body>
 </html>
